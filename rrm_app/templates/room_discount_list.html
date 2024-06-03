@@ -1,0 +1,15 @@
+<!-- rrm_app/templates/room_discount_list.html -->
+{% extends "base_generic.html" %}
+{% block content %}
+  <h1>Discount Room Rates</h1>
+  <a href="{% url 'room_discount_create' %}">Add Discount Room Rate</a>
+  <ul>
+    {% for discount_room_rate in room_discounts %}
+      <li>
+        {{ discount_room_rate.room_rate.room_name }} - {{ discount_room_rate.discount.discount_name }}
+        <a href="{% url 'room_discount_update' discount_room_rate.pk %}">Edit</a>
+        <a href="{% url 'room_discount_delete' discount_room_rate.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

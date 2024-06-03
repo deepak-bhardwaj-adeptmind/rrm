@@ -1,0 +1,20 @@
+<!-- rrm_app/templates/minimum_room_rate.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Minimum Room Rate</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Filter</button>
+    </form>
+    <hr>
+    {% if room_rate %}
+        <h2>Results</h2>
+        <ul>
+            <li>Room ID: {{ room_rate.room_id }}</li>
+            <li>Room Name: {{ room_rate.room_name }}</li>
+            <li>Minimum total rate of the selected date range: {{ min_total_rate }}</li>
+        </ul>
+    {% endif %}
+{% endblock %}

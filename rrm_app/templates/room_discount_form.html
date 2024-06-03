@@ -1,0 +1,10 @@
+<!-- rrm_app/templates/room_discount_form.html -->
+{% extends "base_generic.html" %}
+{% block content %}
+  <h1>{% if object %}Update Discount{% else %}Create Room Discount{% endif %}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

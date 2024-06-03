@@ -1,0 +1,19 @@
+<!-- rrm_app/templates/room_rate_list.html -->
+{% extends "base_generic.html" %}
+{% block title %}Room Rates{% endblock %}
+
+{% block content %}
+  <h1>Room Rates</h1>
+  <a href="{% url 'room_rate_create' %}">Add New Room Rate</a>
+  <ul>
+    {% for room_rate in room_rates %}
+      <li>
+        {{ room_rate.room_name }} (ID: {{ room_rate.room_id }}): ${{ room_rate.default_rate }}
+        <a href="{% url 'room_rate_update' room_rate.pk %}">Edit</a>
+        <a href="{% url 'room_rate_delete' room_rate.pk %}">Delete</a>
+      </li>
+    {% empty %}
+      <li>No room rates available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

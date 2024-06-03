@@ -1,0 +1,12 @@
+<!-- rrm_app/templates/overridden_rate_form.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Overridden Room Rate</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'overridden_rate_list' %}">Cancel</a>
+{% endblock %}

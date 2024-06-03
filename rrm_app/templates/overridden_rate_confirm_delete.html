@@ -1,0 +1,12 @@
+<!-- rrm_app/templates/overridden_rate_confirm_delete.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Confirm Deletion</h1>
+  <p>Are you sure you want to delete the overridden rate for {{ overridden_rate.room_rate.room_name }} on {{ overridden_rate.stay_date }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+  </form>
+  <a href="{% url 'overridden_rate_list' %}">Cancel</a>
+{% endblock %}

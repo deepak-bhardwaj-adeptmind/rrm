@@ -1,0 +1,22 @@
+<!-- rrm_app/templates/discount_list.html -->
+{% extends "base_generic.html" %}
+{% block content %}
+  <h1>Discounts</h1>
+  <a href="{% url 'discount_create' %}">Add New Discount</a>
+  <ul>
+    {% for discount in discounts %}
+      <li>
+        {{ discount.discount_name }} -
+        {% if discount.discount_type == 'fixed' %}
+          Fixed: ${{ discount.discount_value }}
+        {% else %}
+          Percentage: {{ discount.discount_value }}%
+        {% endif %}
+        <a href="{% url 'discount_update' discount.pk %}">Edit</a>
+        <a href="{% url 'discount_delete' discount.pk %}">Delete</a>
+      </li>
+    {% empty %}
+      <li>No discounts available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!-- rrm_app/templates/room_rate_confirm_delete.html -->
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block title %}Delete Room Rate{% endblock %}
+
+{% block content %}
+  <h1>Delete Room Rate</h1>
+  <p>Are you sure you want to delete the room rate for {{ room_rate.room_name }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+  </form>
+  <a href="{% url 'room_rate_list' %}">Cancel</a>
+{% endblock %}

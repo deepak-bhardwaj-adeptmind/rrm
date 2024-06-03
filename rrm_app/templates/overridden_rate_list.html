@@ -1,0 +1,19 @@
+<!-- rrm_app/templates/overridden_rate_list.html -->
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block title %}Overridden Room Rates{% endblock %}
+
+{% block content %}
+  <h1>Overridden Room Rates</h1>
+  <a href="{% url 'overridden_rate_create' %}">Add New Overridden Rate</a>
+  <ul>
+    {% for overridden_rate in overridden_rates %}
+      <li>
+        {{ overridden_rate.room_rate.room_name }}: {{ overridden_rate.overridden_rate }} on {{ overridden_rate.stay_date }}
+        <a href="{% url 'overridden_rate_update' overridden_rate.pk %}">Edit</a>
+        <a href="{% url 'overridden_rate_delete' overridden_rate.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

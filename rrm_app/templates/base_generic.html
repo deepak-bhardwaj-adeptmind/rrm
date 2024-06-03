@@ -1,0 +1,30 @@
+<!-- rrm_app/templates/base_generic.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Room Management System{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Room Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'room_rate_list' %}">Room Rates</a></li>
+                <li><a href="{% url 'overridden_rate_list' %}">Overridden Rates</a></li>
+                <li><a href="{% url 'discount_list' %}">Discounts</a></li>
+                <li><a href="{% url 'room_discount_list' %}">Room Discounts</a></li>
+                <li><a href="{% url 'minimum_room_rate' %}">Get Prices</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        <!-- This block will be filled with content from child templates -->
+        {% endblock %}
+    </main>
+</body>
+</html>
