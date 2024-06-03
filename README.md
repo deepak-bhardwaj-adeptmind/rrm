@@ -19,6 +19,9 @@ The project will be accessible on http://127.0.0.1:8000/api/
 The project uses `sqlite` database by default but you can switch to use `MySQL` database by:
 - enabling the commented `MySQL` DATABASE settings in the settings.py file.
 - running the MySQL database server on the same port as is mentioned in the settings.
+
+### Django Admin
+The project models are also accessible via django-admin. You will need to create a superuser for the same.
  
 
 
