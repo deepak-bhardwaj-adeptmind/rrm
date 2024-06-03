@@ -1,2 +1,6 @@
 venv/**
 db.sqlite3
+.idea/
+rrm/__pycache__/
+rrm_app/__pycache__/
+rrm_app/migrations/__pycache__/
